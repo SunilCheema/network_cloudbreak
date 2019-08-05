@@ -45,6 +45,10 @@ variable "instance_type_size" {
   default = ["t2.medium"]
 }
 
+variable "ip_block" {
+  type    = string
+}
+
 resource "aws_vpc" "terraform2" {
 
 cidr_block       = "10.0.0.0/16"
@@ -139,7 +143,7 @@ resource "aws_security_group" "allow_ssh_https" {
     protocol    = "tcp"
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
-    cidr_blocks = [""]
+    cidr_blocks = ["${var.ip_block}"]
   }
 
   ingress {
@@ -149,7 +153,7 @@ resource "aws_security_group" "allow_ssh_https" {
     protocol    = "tcp"
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
-    cidr_blocks = [""]
+    cidr_blocks = ["${var.ip_block}"]
   }
 
   egress {
