@@ -139,7 +139,7 @@ resource "aws_security_group" "allow_ssh_https" {
     protocol    = "tcp"
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
-    cidr_blocks = ["81.154.61.100/32"]
+    cidr_blocks = [""]
   }
 
   ingress {
@@ -149,7 +149,7 @@ resource "aws_security_group" "allow_ssh_https" {
     protocol    = "tcp"
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
-    cidr_blocks = ["81.154.61.100/32"]
+    cidr_blocks = [""]
   }
 
   egress {
