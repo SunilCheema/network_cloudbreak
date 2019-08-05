@@ -137,7 +137,7 @@ resource "aws_instance" "example" {
 
 ami           = "ami-01ed306a12b7d1c96"
 instance_type = "${var.instance_type_size[0]}"
-subnet_id = "${aws_subnet.public_subnet.id}"
+subnet_id = "${aws_subnet.private_subnet.id}"
 vpc_security_group_ids = ["${aws_security_group.allow_ssh_https.id}"]
 associate_public_ip_address = true
 key_name = "OregonPair"
